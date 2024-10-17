@@ -17,7 +17,7 @@ $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
 # template each HTML file
-$(OUT_DIR)/%.html: $(PAGES_DIR)/%.html | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(PAGES_DIR)/%.html $(TPL_DIR)/*.j2 | $(OUT_DIR)
 	$(TPL_DIR)/expand.py "$<" "$@"
 
 # copy CSS

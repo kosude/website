@@ -1,0 +1,19 @@
+aside#sidebar {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 25ch;
+    padding-right: 10px;
+}
+
+aside#sidebar > h3#name {
+    font-size: 1.3rem;
+}
+
+aside#sidebar > nav > ul {
+    list-style: none;
+    padding-inline-start: 0;
+}
+aside#sidebar > nav > ul > li {
+    margin-top: 10px;
+}

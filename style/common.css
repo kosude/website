@@ -2,6 +2,13 @@
     font-family: Arial, sans-serif;
 }
 
+a {
+    color: blue;
+}
+a:active {
+    color: red;
+}
+
 body {
     display: grid;
 
@@ -11,16 +18,10 @@ body {
     margin-right: auto;
 }
 
-aside#sidebar {
-    grid-column: 1;
-    grid-row: 1;
-}
-
 article#content {
-    max-width: 70ch;
-
     grid-column: 2;
     grid-row: 1;
 
-    font-size: 1rem;
+    max-width: 70ch;
+    padding-left: 10px;
 }
