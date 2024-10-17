@@ -17,20 +17,25 @@ def get_args():
     parser.add_argument("outfile",
                         type=str,
                         help="path to output file")
+    parser.add_argument("pagedir",
+                        type=str,
+                        help="path to HTML page directory")
+    parser.add_argument("tpldir",
+                        type=str,
+                        help="path to templates directory")
 
     return parser.parse_args()
 
 ARGS = get_args()
 INFILE = os.path.basename(ARGS.infile)
 OUTFILE = os.path.realpath(ARGS.outfile)
+PAGES_DIR = os.path.realpath(ARGS.pagedir)
+TPL_DIR = os.path.realpath(ARGS.tpldir)
 
 # directory must exist for the output file
 if not os.path.exists(os.path.dirname(OUTFILE)):
     print(f"Error: non-existent parent directory of output file '{OUTFILE}'")
     exit(1)
-
-PAGES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "pages")
-TPL_DIR = os.path.dirname(os.path.realpath(__file__))
 
 pages_env = j2.Environment(loader=j2.FileSystemLoader(PAGES_DIR))
 tpl_loader = j2.FileSystemLoader(TPL_DIR)

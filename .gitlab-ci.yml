@@ -11,7 +11,7 @@ workflow:
       when: never
     - if: $CI_COMMIT_BRANCH == "main"
 
-template_pages:
+generate_dist:
   stage: build
   before_script:
     - pip install -r requirements.txt
