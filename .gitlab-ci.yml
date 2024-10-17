@@ -1,0 +1,32 @@
+stages:
+  - build
+  - deploy
+
+default:
+  image: python:3.10
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: $CI_COMMIT_BRANCH == "main"
+
+template_pages:
+  stage: build
+  before_script:
+    - pip install -r requirements.txt
+    - apt-get -y install make
+  script:
+    - make
+  artifacts:
+    paths:
+      - dist
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - mv dist/* public
+  artifacts:
+    paths:
+      - public
