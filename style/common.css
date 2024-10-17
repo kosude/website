@@ -22,6 +22,6 @@ article#content {
     grid-column: 2;
     grid-row: 1;
 
-    max-width: 70ch;
+    width: 70ch;
     padding-left: 10px;
 }

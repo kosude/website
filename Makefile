@@ -28,7 +28,7 @@ $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
 # template each HTML file
-$(OUT_DIR)/%.html: $(PAGES_DIR)/%.html $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
+$(OUT_DIR)/%.html: $(PAGES_DIR)/%.html $(PAGES_DIR)/rst/*.rst $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
 	$(PYTHON) $(SRC_DIR)/gen/template.py "$<" "$@" $(PAGES_DIR) $(TPL_DIR)
 
 # copy CSS
