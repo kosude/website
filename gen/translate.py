@@ -57,7 +57,7 @@ if args.rst:
 
     BASEFILE = os.path.realpath(args.base)
 
-    (rst_title, rst_html) = parse_rst_file(INFILE)
+    rst_html = parse_rst_file(INFILE)
 
     # get the base file contents and insert the RST-HTML translation
     f = open(BASEFILE, "r")
@@ -65,7 +65,6 @@ if args.rst:
     f.close()
 
     datasrc = datasrc.replace("{@{RST_PUT}@}", rst_html)
-    datasrc = datasrc.replace("{@{RST_TITLE}@}", f"{rst_title} - Jack Bennett")
 
     write_and_exit(datasrc)
 else:
