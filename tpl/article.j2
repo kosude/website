@@ -1,12 +1,15 @@
+{% import "headelems.j2" as he %}
+{% import "sidebar.j2" as sbar %}
+
 <!DOCTYPE html>
 
 <html lang="en">
     <head>
-        {% include "headelems.j2" %}
+        {{ he.head("../") }}
     </head>
 
     <body>
-        {% include "sidebar.j2" %}
+        {{ sbar.sidebar("../", "") }}
 
         <article id="content">
             {@{RST_PUT}@}

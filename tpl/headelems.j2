@@ -1,7 +1,9 @@
+{% macro head(prefix) -%}
 <title>Jack Bennett</title>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="/common.css">
-<link rel="stylesheet" href="/sidebar.css">
+<link rel="stylesheet" href="{{ prefix }}common.css">
+<link rel="stylesheet" href="{{ prefix }}sidebar.css">
+{%- endmacro %}
