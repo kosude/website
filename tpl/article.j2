@@ -11,10 +11,12 @@
     </head>
 
     <body>
-        {{ sbar.sidebar("../", "") | indent | indent }}
+        <main>
+            {{ sbar.sidebar("../", "") | indent | indent }}
 
-        <article id="content">
-            {@{RST_PUT}@}
-        </article>
+            <article id="content">
+                {@{RST_PUT}@}
+            </article>
+        </main>
     </body>
 </html>

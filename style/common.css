@@ -12,13 +12,22 @@ a:active {
     color: red;
 }
 
+html {
+    height: 100%;
+    margin: 0;
+}
 body {
-    display: grid;
-
+    height: 100%;
     width: 80%;
     max-width: 100ch;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+}
+
+main {
+    display: grid;
+
+    min-height: 100%;
+    padding: 0 40px;
 }
 
 article#content {
