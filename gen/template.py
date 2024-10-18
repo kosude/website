@@ -8,7 +8,6 @@
 import argparse
 import jinja2 as j2
 import os
-from __rstparse import parse_rst_file
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -41,15 +40,9 @@ if not os.path.exists(os.path.dirname(OUTFILE)):
 pages_env = j2.Environment(loader=j2.FileSystemLoader(PAGES_DIR))
 tpl_loader = j2.FileSystemLoader(TPL_DIR)
 
-# specify custom functions
-func_dict = {
-    "rstfile": parse_rst_file
-}
-
 # get template for INFILE to be rendered into OUTFILE
 tpl = pages_env.get_template(INFILE)
 tpl.environment.loader = tpl_loader # {%include%}'d templates sourced via tpl_loader
-tpl.globals.update(func_dict)
 
 res = tpl.render()
 with open(OUTFILE, "w", encoding="utf-8") as f:

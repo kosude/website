@@ -7,6 +7,7 @@
 
 import argparse
 import os
+from __rstparse import parse_rst_file
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -32,14 +33,14 @@ if not os.path.exists(os.path.dirname(OUTFILE)):
     print(f"Error: non-existent parent directory of output file '{OUTFILE}'")
     exit(1)
 
-# string which will be inserted into the file, to then be evaluated with template.py
-funcstr = "{{ " + f"rstfile(\"{RSTFILE}\")" + " }}"
+(rst_title, rst_html) = parse_rst_file(RSTFILE)
 
 # copy the base file to the output location with inserted RST function call
 f = open(BASEFILE, "r")
 datasrc = f.read()
 f.close()
-datadst = datasrc.replace("{@{RST_PUT}@}", funcstr)
+datadst = datasrc.replace("{@{RST_PUT}@}", rst_html)
+datadst = datadst.replace("{@{RST_TITLE}@}", f"{rst_title} - Jack Bennett")
 f = open(OUTFILE, "w")
 f.write(datadst)
 f.close()

@@ -44,6 +44,7 @@ def parse_rst_file(path):
         src = f.read()
 
     parts = publish_parts(src, writer=HTMLWriter())
+    title = parts["title"]
     body = parts["html_body"]
 
     # we remove the surrounding <div> element that docutils creates, since it is redundant.
@@ -52,4 +53,4 @@ def parse_rst_file(path):
     ret = re.sub(DOCDIV_OPEN_RE, "", body)
     ret = re.sub(DOCDIV_CLOSE_RE, "", ret)
 
-    return ret
+    return (title, ret)
