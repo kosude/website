@@ -22,6 +22,7 @@ body {
 
 main {
     display: grid;
+    grid-template-columns: 25ch 1fr;
 
     min-height: 100%;
     padding: 0 40px;
@@ -29,9 +30,7 @@ main {
 
 article#content {
     grid-column: 2;
-    grid-row: 1;
 
-    max-width: 70ch;
     padding-left: 10px;
 }
 article#content > h1 {
@@ -52,4 +51,22 @@ article#content section li > h4 {
     font-size: 1.2em;
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;
+    }
+
+    main {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    article#content {
+        grid-column: 1;
+        grid-row: 2;
+
+        margin-top: -20px;
+    }
 }

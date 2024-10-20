@@ -1,8 +1,6 @@
 aside#sidebar {
     grid-column: 1;
-    grid-row: 1;
 
-    width: 25ch;
     padding-right: 10px;
 
     font-size: 0.8rem;
@@ -17,6 +15,11 @@ aside#sidebar > span#name {
     font-weight: bold;
 }
 
+aside#sidebar > div {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+}
+
 aside#sidebar nav {
     margin-bottom: 15px;
 }
@@ -27,11 +30,18 @@ aside#sidebar nav#main-pages {
     border: 1px solid orange;
 
     font-weight: bold;
+
+    grid-row: 1;
+}
+aside#sidebar nav#articles {
+    grid-row: 2;
 }
 aside#sidebar nav#external-links {
     padding: 10px;
 
     border: 1px dashed gray;
+
+    grid-row: 3;
 }
 
 aside#sidebar nav > h1 {
@@ -40,14 +50,40 @@ aside#sidebar nav > h1 {
     font-size: 1.1em;
     font-weight: bold;
 }
-aside#sidebar nav#main-pages > h1 {
-    text-align: center;
-}
 
 aside#sidebar nav > ul {
     margin: 0;
 }
-aside#sidebar nav#main-pages > ul {
-    list-style: none;
-    padding-left: 0;
+
+aside#sidebar nav#articles > ul > li {
+    margin: 2.5px 0;
+}
+
+@media screen and (max-width: 768px) {
+    aside#sidebar {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    aside#sidebar > span#name {
+        text-align: center;
+    }
+
+    aside#sidebar > div {
+        grid-template-rows: repeat(2, min-content);
+        grid-template-areas:
+            "mp el"
+            "ar ar"
+    }
+    aside#sidebar nav#main-pages {
+        grid-area: mp;
+        margin-right: 8px;
+    }
+    aside#sidebar nav#articles {
+        grid-area: ar;
+    }
+    aside#sidebar nav#external-links {
+        grid-area: el;
+        margin-left: 8px;
+    }
 }
