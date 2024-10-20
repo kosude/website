@@ -4,36 +4,50 @@ aside#sidebar {
 
     width: 25ch;
     padding-right: 10px;
+
+    font-size: 0.8rem;
 }
 
-aside#sidebar > div#name {
-    margin-top: 1.7rem;
+aside#sidebar > span#name {
+    display: block;
+
+    margin: 30px 0 10px 0;
+
     font-size: 1.3rem;
     font-weight: bold;
 }
 
-aside#sidebar nav > ul {
-    list-style: none;
-    padding-inline-start: 0;
+aside#sidebar nav {
+    margin-bottom: 15px;
 }
-aside#sidebar nav > ul > li {
-    margin-top: 10px;
-}
+aside#sidebar nav#main-pages {
+    padding: 10px;
 
-aside#sidebar div#infobox {
     background-color: lightyellow;
     border: 1px solid orange;
 
+    font-weight: bold;
+}
+aside#sidebar nav#external-links {
     padding: 10px;
 
-    font-size: 0.8rem;
+    border: 1px dashed gray;
 }
-aside#sidebar div#infobox > span#title {
+
+aside#sidebar nav > h1 {
     margin: 0;
 
     font-size: 1.1em;
     font-weight: bold;
 }
-aside#sidebar div#infobox > ul {
+aside#sidebar nav#main-pages > h1 {
+    text-align: center;
+}
+
+aside#sidebar nav > ul {
     margin: 0;
+}
+aside#sidebar nav#main-pages > ul {
+    list-style: none;
+    padding-left: 0;
 }

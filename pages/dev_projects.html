@@ -1,0 +1,20 @@
+{%- import "headelems.j2" as he -%}
+{%- import "sidebar.j2" as sbar -%}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {{ he.head("") | indent | indent }}
+    </head>
+
+    <body>
+        <main>
+            {{ sbar.sidebar("", "articles/") | indent | indent }}
+
+            <article id="content">
+                <h1>My programming projects</h1>
+            </article>
+        </main>
+    </body>
+</html>

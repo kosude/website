@@ -1,20 +1,28 @@
 {% macro sidebar(prefix, prefix_articles) -%}
 <aside id="sidebar">
-    <div id="name">Jack Bennett</div>
+    <span id="name">Jack Bennett</span>
 
-    <nav>
+    <nav id="main-pages">
+        <h1>Main pages</h1>
         <ul>
             <li><a href="{{ prefix }}index.html">Home</a></li>
+            <li><a href="{{ prefix }}dev_projects.html">My projects</a></li>
+        </ul>
+    </nav>
+
+    <nav id="articles-nav">
+    <h1>Articles</h1>
+        <ul>
             <li><a href="{{ prefix_articles }}test_page.html">A test article compiled from reStructuredText</a></li>
         </ul>
     </nav>
 
-    <div id="infobox">
-        <span id="title">External links</span>
+    <nav id="external-links">
+        <h1>External links</h1>
         <ul>
             <li><a href="https://gitlab.com/kosude">GitLab</a></li>
             <li><a href="https://github.com/kosude">GitHub</a></li>
         </ul>
-    </div>
+    </nav>
 </aside>
 {%- endmacro %}
