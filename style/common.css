@@ -2,9 +2,6 @@
     font-family: Arial, sans-serif;
 }
 
-h1, h2 {
-    color: darkred;
-}
 a {
     color: blue;
 }
@@ -38,7 +35,11 @@ article#content {
     padding-left: 10px;
 }
 article#content > h1 {
+    color: darkred;
     font-size: 2em;
+}
+article#content > h2 {
+    color: darkred;
 }
 
 article#content section > h3 {

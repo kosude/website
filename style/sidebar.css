@@ -6,15 +6,34 @@ aside#sidebar {
     padding-right: 10px;
 }
 
-aside#sidebar > h3#name {
+aside#sidebar > div#name {
     margin-top: 1.7rem;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
-aside#sidebar > nav > ul {
+aside#sidebar nav > ul {
     list-style: none;
     padding-inline-start: 0;
 }
-aside#sidebar > nav > ul > li {
+aside#sidebar nav > ul > li {
     margin-top: 10px;
+}
+
+aside#sidebar div#infobox {
+    background-color: lightyellow;
+    border: 1px solid orange;
+
+    padding: 10px;
+
+    font-size: 0.8rem;
+}
+aside#sidebar div#infobox > span#title {
+    margin: 0;
+
+    font-size: 1.1em;
+    font-weight: bold;
+}
+aside#sidebar div#infobox > ul {
+    margin: 0;
 }

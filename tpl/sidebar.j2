@@ -1,6 +1,6 @@
 {% macro sidebar(prefix, prefix_articles) -%}
 <aside id="sidebar">
-    <h3 id="name">Jack Bennett</h3>
+    <div id="name">Jack Bennett</div>
 
     <nav>
         <ul>
@@ -8,5 +8,13 @@
             <li><a href="{{ prefix_articles }}test_page.html">A test article compiled from reStructuredText</a></li>
         </ul>
     </nav>
+
+    <div id="infobox">
+        <span id="title">External links</span>
+        <ul>
+            <li><a href="https://gitlab.com/kosude">GitLab</a></li>
+            <li><a href="https://github.com/kosude">GitHub</a></li>
+        </ul>
+    </div>
 </aside>
 {%- endmacro %}
