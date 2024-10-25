@@ -73,7 +73,7 @@ aside#sidebar nav#articles > ul > li {
         grid-template-rows: repeat(2, min-content);
         grid-template-areas:
             "mp el"
-            "ar ar"
+            "ar ar";
     }
     aside#sidebar nav#main-pages {
         grid-area: mp;

@@ -6,6 +6,8 @@
 <html lang="en">
     <head>
         {{ he.head("") | indent | indent }}
+
+        <link rel="stylesheet" href="projects.css">
     </head>
 
     <body>
@@ -14,6 +16,22 @@
 
             <article id="content">
                 <h1>My programming projects</h1>
+
+                <article class="brief">
+                    <h2>Thallium Graphics</h2>
+                    <img src="media/placeholder.png">
+                    <p>
+                        {{ lipsum(1) }}
+                    </p>
+                </article>
+
+                <article class="brief">
+                    <h2>Minecraft in Vulkan</h2>
+                    <img src="media/placeholder.png">
+                    <p>
+                        {{ lipsum(1) }}
+                    </p>
+                </article>
             </article>
         </main>
     </body>
