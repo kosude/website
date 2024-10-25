@@ -1,27 +1,38 @@
 article.brief {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "ti ti"
-        "im ds";
+    overflow: hidden;
+
+    padding: 10px;
+    margin-bottom: 2ch;
+
+    background-color: gainsboro;
+    border: 1px solid gray;
 }
 
-article.brief > h2 {
-    grid-area: ti;
+article.brief > hgroup {
+    clear: both;
+    text-align: center;
 
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    padding: 1ch 0;
+    margin-bottom: 1ch;
+}
+article.brief > hgroup > * {
     margin: 0;
+}
+article.brief > hgroup > p {
+    font-size: 0.8em;
 }
 
 article.brief > img {
-    grid-area: im;
-    place-self: center;
+    float: left;
+    margin: 0 2ch 1ch 0;
+    width: 40%;
+    height: auto;
 
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
+    border: 1px solid gray;
 }
 
 article.brief > p {
-    grid-area: ds;
+    margin-top: 0;
 }

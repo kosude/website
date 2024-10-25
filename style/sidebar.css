@@ -70,7 +70,6 @@ aside#sidebar nav#articles > ul > li {
     }
 
     aside#sidebar > div {
-        grid-template-rows: repeat(2, min-content);
         grid-template-areas:
             "mp el"
             "ar ar";
