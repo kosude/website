@@ -24,13 +24,13 @@ validate_python:
 GEN_HTML := $(subst pages,$(OUT_DIR),$(shell find $(PAGES_DIR) -name "*.html"))
 GEN_RST := $(subst .rst,.html,$(subst pages/rst,$(OUT_DIR)/articles,$(shell find $(PAGES_RST_DIR) -name "*.rst")))
 GEN_CSS := $(subst style,$(OUT_DIR),$(shell find $(STYLES_DIR) -name "*.css"))
-GEN_MEDIA := $(subst media,$(OUT_DIR)/media,$(shell find $(MEDIA_DIR) -name "*.png"))
+# GEN_MEDIA := $(subst media,$(OUT_DIR)/media,$(shell find $(MEDIA_DIR) -name "*.png"))
 
 all: $(GEN_HTML) $(GEN_RST) $(GEN_CSS) $(GEN_MEDIA)
 
 $(OUT_DIR):
 	mkdir -p $(OUT_DIR)/articles
-	mkdir -p $(OUT_DIR)/media
+#	mkdir -p $(OUT_DIR)/media
 
 # copy the base article.html for each RST document and expand it
 $(OUT_DIR)/articles/%.html: $(PAGES_RST_DIR)/%.rst $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
@@ -46,5 +46,5 @@ $(OUT_DIR)/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
 	cp "$<" "$@"
 
 # copy media
-$(GEN_MEDIA): $(OUT_DIR)/media/%: $(MEDIA_DIR)/% | $(OUT_DIR)
-	cp "$<" "$@"
+# $(GEN_MEDIA): $(OUT_DIR)/media/%: $(MEDIA_DIR)/% | $(OUT_DIR)
+# 	cp "$<" "$@"
