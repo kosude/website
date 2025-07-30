@@ -1,0 +1,219 @@
+{%- import "headelems.j2" as he -%}
+{%- import "sidebar.j2" as sbar -%}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {{ he.head() | indent | indent }}
+
+        <link rel="stylesheet" href="/projects.css">
+    </head>
+
+    <body>
+        <main>
+            {{ sbar.sidebar() | indent | indent }}
+
+            <article id="content">
+                <h1>My projects</h1>
+
+                <p>
+                    This page contains some lists of things I've worked on over the years in my spare time.
+                </p>
+
+                <p>
+                    More information can be found about each entry at their respective sites (usually a hosted Git repository). The more interesting
+                    stuff might get their own articles in the future, which will be linked on this page as well as in the sidebar.
+                </p>
+
+                <h2>Electronics</h2>
+
+                <ul class="projects">
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    DOOMbox
+                                    <span class="tags">digital, rp2350, c, assembly</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://gitlab.com/kosude/doombox">GitLab</a>
+                                </span>
+                            </summary>
+
+                            A work-in-progress console dedicated to running a purpose-built DOOM clone. This is an evolution and hardware-based
+                            equivalent of my DOOM kernel, which is listed in another entry below.
+                        </details>
+                    </li>
+                </ul>
+
+                <h2>Programming</h2>
+
+                <h3>Super low-level things</h3>
+
+                <ul class="projects">
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    DOOM Kernel
+                                    <span class="tags">x86-assembly, nasm</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://gitlab.com/kosude/doom">GitLab</a>
+                                </span>
+                            </summary>
+
+                            A DOOM clone fully written in pure x86, Intel-syntax (<a href="https://www.nasm.us/">NASM</a>) assembly.
+                        </details>
+                    </li>
+
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    AWM
+                                    <span class="tags">c, unix, window-manager</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://gitlab.com/kosude/awm">GitLab</a>
+                                </span>
+                            </summary>
+
+                            A lightweight Linux X11 window manager written in C with <a href="https://xcb.freedesktop.org/">libxcb</a>.
+                        </details>
+                    </li>
+                </ul>
+
+                <h3>Graphics and visualisations</h3>
+
+                <ul class="projects">
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    The Thallium library
+                                    <span class="tags">c, 3dgraphics, vulkan, library</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://gitlab.com/kosude/thallium">GitLab</a>
+                                </span>
+                            </summary>
+
+                            A low-level C library to abstract over multiple graphics/compute APIs, including Vulkan and OpenGL.
+                        </details>
+                    </li>
+
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    Minecraft with Vulkan
+                                    <span class="tags">c++, 3dgraphics, vulkan</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://github.com/kosude/minecraft_vk">GitHub</a>
+                                </span>
+                            </summary>
+
+                            An extremely work-in-progress implementation of Minecraft written in C++ rendered with Vulkan.
+                        </details>
+                    </li>
+                </ul>
+
+                <h3>Utilities</h3>
+
+                <ul class="projects">
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    Devinit
+                                    <span class="tags">rust, utility, cli</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://github.com/kosude/devinit">GitHub</a>
+                                </span>
+                            </summary>
+
+                            A command-line tool written in Rust to quickly initialise files and folders with preconfigured boilerplate templates.
+                            Note that I have started working on a rewrite of this with the goal of simplifying its interface for better usability:
+                            see its successor, <b>Printing Press</b>, on <a href="https://gitlab.com/kosude/printingpress">GitLab</a>.
+                        </details>
+                    </li>
+
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    TexEdit
+                                    <span class="tags">c++, rust, latex, wxwidgets</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://gitlab.com/kosude/texedit">GitLab</a>
+                                </span>
+                            </summary>
+
+                            An integrated editor and viewer (implemented in C++ with wxWidgets) and purpose-built compiler (CLI tool written in Rust)
+                            for <a href="https://tug.org/">TeX</a>/<a href="https://www.latex-project.org/">LaTeX</a> documents.
+                        </details>
+                    </li>
+
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    jSin
+                                    <span class="tags">javascript, browser-extension</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://github.com/kosude/jsin-extension">GitHub</a>
+                                </span>
+                            </summary>
+
+                            A JavaScript injector extension, which I unfortunately had to abandon following Google burying Manifest V3 in their
+                            usual incompetence. It is available for installation from the
+                            <a href="https://addons.mozilla.org/en-GB/firefox/addon/jsin-extension/">Mozilla add-ons store</a> for real browsers.
+                        </details>
+                    </li>
+                </ul>
+
+                <h3>Other stuff</h3>
+
+                <ul class="projects">
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    C Utils
+                                    <span class="tags">c, utility, library</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://gitlab.com/kosude/cutils">GitLab</a>
+                                </span>
+                            </summary>
+
+                            A collection of very minimal/lightweight C libraries for data structures and I/O.
+                        </details>
+                    </li>
+
+                    <li>
+                        <details>
+                            <summary>
+                                <div class="brief">
+                                    The Zeta maths library
+                                    <span class="tags">c, 3dgraphics, utility, library</span>
+                                </div>
+                                <span class="upstream">
+                                    <a href="https://github.com/kosude/zetaml">GitHub</a>
+                                </span>
+                            </summary>
+
+                            A much older C library for 3D graphics-related maths operations.
+                        </details>
+                    </li>
+                </ul>
+            </article>
+        </main>
+    </body>
+</html>

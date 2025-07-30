@@ -18,11 +18,9 @@ aside#sidebar > span#name {
 aside#sidebar > div {
     display: grid;
     grid-template-rows: repeat(3, auto);
+    gap: 15px;
 }
 
-aside#sidebar nav {
-    margin-bottom: 15px;
-}
 aside#sidebar nav#main-pages {
     padding: 10px;
 
@@ -63,6 +61,8 @@ aside#sidebar nav#articles > ul > li {
     aside#sidebar {
         grid-column: 1;
         grid-row: 1;
+
+        padding-right: 0;
     }
 
     aside#sidebar > span#name {

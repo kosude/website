@@ -1,0 +1,58 @@
+ul.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+
+    list-style: none;
+
+    padding: 0;
+}
+
+ul.projects li {
+    border: 1px solid grey;
+}
+
+ul.projects li details {
+    padding: 0.5em 0.5em 0;
+}
+ul.projects li details:open {
+    padding: 0.5em;
+}
+ul.projects li details:open summary {
+    background: #dbdbdb;
+    background: linear-gradient(180deg, rgba(219, 219, 219, 1) 0%, rgba(255, 255, 255, 1) 100%);
+
+    margin-bottom: 0.5em;
+    border-bottom: 1px dashed grey;
+}
+
+ul.projects li details summary {
+    background: #dbdbdb;
+    background: linear-gradient(0deg, rgba(219, 219, 219, 1) 0%, rgba(255, 255, 255, 1) 100%);
+
+    font-weight: bold;
+    cursor: pointer;
+
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.projects li details summary .brief span.tags {
+    align-self: flex-start;
+
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.85em;
+
+    display: flex;
+}
+ul.projects li details summary span.upstream {
+    align-self: flex-end;
+
+    font-weight: normal;
+}

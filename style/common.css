@@ -24,7 +24,6 @@ main {
     display: grid;
     grid-template-columns: 25ch 1fr;
 
-    min-height: 100%;
     padding: 0 40px 20px 40px;
 }
 
@@ -68,5 +67,6 @@ article#content section li > h4 {
         grid-row: 2;
 
         margin-top: -20px;
+        padding-left: 0;
     }
 }

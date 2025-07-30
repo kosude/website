@@ -5,118 +5,37 @@
 
 <html lang="en">
     <head>
-        {{ he.head("") | indent | indent }}
+        {{ he.head() | indent | indent }}
     </head>
 
     <body>
         <main>
-            {{ sbar.sidebar("", "articles/") | indent | indent }}
+            {{ sbar.sidebar() | indent | indent }}
 
             <article id="content">
-                <h1>A very basic personal website</h1>
+                <h1>Jack Bennett's personal page</h1>
 
                 <p>
-                    I set up this site to keep references to all my programming projects in one place after I began migrating some from GitHub to
-                    GitLab (so naturally having a simple profile became less effective), but I also plan on taking the opportunity to write about
-                    anything else I work on or am interested in. If anyone comes across this I hope some of the articles here could be a good read.
+                    This is a personal website I set up to keep references to all my projects in one place (mostly programming stuff, since I've got
+                    some things on GitHub and some on GitLab). I also plan on taking the opportunity to write about anything else I work on or am
+                    interested in.
                 </p>
 
                 <p>
-                    Considering programming is a pretty significant part of what I am writing about here I've linked the relevant profiles below:
+                    For some reason I really like the aesthetic of old 'web 1.0' personal websites, which is the look I'm sort of going for with this
+                    page. Maybe not 100% <a href="http://boglin.iwarp.com/">true-to-form</a>, but close enough while still being (hopefully) usable.
                 </p>
-                <ul>
-                    <li><a href="https://github.com/kosude">GitHub</a></li>
-                    <li><a href="https://gitlab.com/kosude">GitLab</a> <i>(which I eventually plan on fully migrating to)</i></li>
-                </ul>
 
-                <h2>My Projects</h2>
+                <!-- TODO website meta-article (my design thoughts) -->
 
-                In the future this section will be moved to a dedicated 'portfolio' sub-site, which will be laid out a bit better for that sort of
-                thing.
+                <p>
+                    For anyone who's interested, a (mostly) complete list of the projects I've worked on can be seen
+                    <a href="/projects.html">here</a>.
+                </p>
 
-                <section>
-                    <h3>Graphics and visualisations</h3>
-                    <ul>
-                        <li>
-                            <h4>The Thallium library
-                                <i>(<a href="https://github.com/kosude/thallium">Source</a>)</i>
-                            </h4>
-                            <i>A graphics library designed to abstract over multiple APIs, including Vulkan.</i>
-                        </li>
-
-                        <li>
-                            <h4>A private CFD simulator</h4>
-                            <i>A relatively primitive CFD/aerodynamics simulation written in C. This is my coursework project for A-Level Computer
-                                Science so it's currently kept private.</i>
-                        </li>
-
-                        <li>
-                            <h4>Minecraft in Vulkan
-                                <i>(<a href="https://github.com/kosude/minecraft_vk">Source</a>)</i>
-                            </h4>
-                            <i>An extremely work-in-progress (in other words... unfinished), simple implementation of Minecraft in C++ rendered with
-                                Vulkan.</i>
-                        </li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>Systems development</h3>
-                    <ul>
-                        <li>
-                            <h4>AWM
-                                <i>(<a href="https://gitlab.com/kosude/awm">Source</a>)</i>
-                            </h4>
-                            <i>A lightweight Linux window manager written in C with libxcb.</i>
-                        </li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>User-facing applications</h3>
-                    <ul>
-                        <li>
-                            <h4>Devinit
-                                <i>(<a href="https://github.com/kosude/devinit">Source</a>)</i>
-                            </h4>
-                            <i>A Rust CLI tool (and VS Code extension) for file templating and boilerplate.</i>
-                        </li>
-
-                        <li>
-                            <h4>TexEdit
-                                <i>(<a href="https://github.com/kosude/texedit">Source</a>)</i>
-                            </h4>
-                            <i>An integrated viewer, compiler, and text editor for LaTeX documents, written in C++ with wxWidgets.</i>
-                        </li>
-
-                        <li>
-                            <h4>jSin
-                                <i>(<a href="https://github.com/kosude/jsin-extension">Source</a>)</i>
-                            </h4>
-                            <i>A JavaScript injector extension, which I unfortunately had to abandon following Google's idiotic Manifest V3
-                                debacle.</i>
-                        </li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>Other stuff</h3>
-                    <ul>
-                        <li>
-                            <h4>C Utils
-                                <i>(<a href="https://github.com/kosude/cutils">Source</a>)</i>
-                            </h4>
-                            <i>A collection of very minimal/lightweight C libraries for data structures and I/O.</i>
-                        </li>
-
-                        <li>
-                            <h4>Zeta Maths Library
-                                <i>(<a href="https://github.com/kosude/zetaml">Source</a>)</i>
-                            </h4>
-                            <i>A much older C library for 3D graphics-related maths operations.</i>
-                        </li>
-                    </ul>
-                </section>
+                <p>
+                    Otherwise, I hope some of the articles here could be a good read!
+                </p>
             </article>
         </main>
     </body>
