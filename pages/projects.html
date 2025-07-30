@@ -5,14 +5,14 @@
 
 <html lang="en">
     <head>
-        {{ he.head() | indent | indent }}
+        {{ he.head("") | indent | indent }}
 
-        <link rel="stylesheet" href="/projects.css">
+        <link rel="stylesheet" href="projects.css">
     </head>
 
     <body>
         <main>
-            {{ sbar.sidebar() | indent | indent }}
+            {{ sbar.sidebar("", "articles/") | indent | indent }}
 
             <article id="content">
                 <h1>My projects</h1>

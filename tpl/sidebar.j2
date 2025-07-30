@@ -1,4 +1,4 @@
-{% macro sidebar() -%}
+{% macro sidebar(prefix, prefix_articles) -%}
 <aside id="sidebar">
     <span id="name">kosude</span>
 
@@ -6,15 +6,15 @@
         <nav id="main-pages">
             <h1>Main pages</h1>
             <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="{{ prefix }}index.html">Home</a></li>
+                <li><a href="{{ prefix }}projects.html">Projects</a></li>
             </ul>
         </nav>
 
         <nav id="articles">
             <h1>Articles</h1>
             <ul>
-                <li><a href="/articles/test_page.html">A test article compiled from reStructuredText</a></li>
+                <li><a href="{{ prefix_articles }}test_page.html">A test article compiled from reStructuredText</a></li>
             </ul>
         </nav>
 
@@ -23,7 +23,6 @@
             <ul>
                 <li><a href="https://gitlab.com/kosude">GitLab</a></li>
                 <li><a href="https://github.com/kosude">GitHub</a></li>
-                <li><a href="https://stackoverflow.com/users/12980669/kosude">StackOverflow</a></li>
             </ul>
         </nav>
     </div>
