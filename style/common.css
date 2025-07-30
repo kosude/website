@@ -35,6 +35,7 @@ article#content {
 article#content > h1 {
     color: darkred;
     font-size: 2em;
+    margin-top: 30px;
 }
 article#content > h2 {
     color: darkred;
