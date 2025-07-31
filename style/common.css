@@ -32,12 +32,12 @@ article#content {
 
     padding-left: 10px;
 }
-article#content > h1 {
+article#content h1 {
     color: darkred;
     font-size: 2em;
     margin-top: 30px;
 }
-article#content > h2 {
+article#content h2 {
     color: darkred;
 }
 
