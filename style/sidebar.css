@@ -6,6 +6,19 @@ aside#sidebar {
     font-size: 0.8rem;
 }
 
+aside#sidebar > .access-skip {
+    position: absolute;
+    left: -10000px;
+
+    background-color: darkred;
+    color: white;
+    font-size: 1.3em;
+}
+aside#sidebar > .access-skip:focus {
+    position: fixed;
+    left: initial;
+}
+
 aside#sidebar > span#name {
     display: block;
 
