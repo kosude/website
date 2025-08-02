@@ -4,7 +4,6 @@ SRC_DIR := .
 PAGES_DIR := $(SRC_DIR)/pages
 PAGES_RST_DIR := $(SRC_DIR)/pages/rst
 STYLES_DIR := $(SRC_DIR)/style
-MEDIA_DIR := $(SRC_DIR)/media
 TPL_DIR := $(SRC_DIR)/tpl
 GENERATOR_DIR := $(SRC_DIR)/generator
 
@@ -13,25 +12,25 @@ PYTHON := python3
 # this ensures `all` is run by default despite not being the first target in the Makefile
 .DEFAULT_GOAL := all
 
-# rules to check for dependencies
-
+# rule to check for python dependency
 validate_python:
 	$(if \
 		$(shell which $(PYTHON)),\
 		$(info Python located at $(shell command -v $(PYTHON))),\
 		$(error Python not found in PATH!))
 
-# create list of templated HTML pages and other copied files
-GEN_HTML := $(subst pages,$(OUT_DIR),$(shell find $(PAGES_DIR) -name "*.html"))
-GEN_RST := $(subst .rst,.html,$(subst pages/rst,$(OUT_DIR)/articles,$(shell find $(PAGES_RST_DIR) -name "*.rst")))
-GEN_CSS := $(subst style,$(OUT_DIR),$(shell find $(STYLES_DIR) -name "*.css"))
-# GEN_MEDIA := $(subst media,$(OUT_DIR)/media,$(shell find $(MEDIA_DIR) -name "*.png"))
+# source files
+SRCS_HTML := $(shell find $(PAGES_DIR) -name "*.html")
+SRCS_RST := $(shell find $(PAGES_RST_DIR) -name "*.rst")
+SRCS_CSS := $(shell find $(STYLES_DIR)/ -name "*.css")
 
-all: $(GEN_HTML) $(GEN_RST) $(GEN_CSS) $(GEN_MEDIA)
+# create lists of transpiled files
+GEN_HTML := $(SRCS_HTML:$(PAGES_DIR)/%=$(OUT_DIR)/%)
+GEN_RST := $(SRCS_RST:$(PAGES_RST_DIR)/%.rst=$(OUT_DIR)/articles/%.html)
+GEN_CSS := $(SRCS_CSS:$(STYLES_DIR)/%=$(OUT_DIR)/css/%)
 
-$(OUT_DIR):
-	mkdir -p $(OUT_DIR)/articles
-#	mkdir -p $(OUT_DIR)/media
+# build everything by default
+all: $(GEN_HTML) $(GEN_RST) $(GEN_CSS)
 
 # copy the base article.html for each RST document and expand it
 $(OUT_DIR)/articles/%.html: $(PAGES_RST_DIR)/%.rst $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
@@ -43,9 +42,13 @@ $(OUT_DIR)/%.html: $(PAGES_DIR)/%.html $(PAGES_RST_DIR)/*.rst $(TPL_DIR)/*.j2 | 
 	$(PYTHON) $(GENERATOR_DIR)/translate.py -t="$(TPL_DIR)" "$<" > "$@"
 
 # copy CSS
-$(OUT_DIR)/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
+$(OUT_DIR)/css/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
 	cp "$<" "$@"
 
-# copy media
-# $(GEN_MEDIA): $(OUT_DIR)/media/%: $(MEDIA_DIR)/% | $(OUT_DIR)
-# 	cp "$<" "$@"
+# directories
+$(OUT_DIR): $(OUT_DIR)/articles $(OUT_DIR)/css
+
+$(OUT_DIR)/articles:
+	mkdir -p $@
+$(OUT_DIR)/css:
+	mkdir -p $@
