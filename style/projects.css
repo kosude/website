@@ -15,10 +15,10 @@ ul.projects li {
 ul.projects li details {
     padding: 0.5em 0.5em 0;
 }
-ul.projects li details:open {
+ul.projects li details[open] {
     padding: 0.5em;
 }
-ul.projects li details:open summary {
+ul.projects li details[open] summary {
     background: #dbdbdb;
     background: linear-gradient(180deg, rgba(219, 219, 219, 1) 0%, rgba(255, 255, 255, 1) 100%);
 

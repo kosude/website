@@ -42,7 +42,7 @@ aside#sidebar nav#external-links {
     grid-row: 3;
 }
 
-aside#sidebar nav > h1 {
+aside#sidebar nav > h2 {
     margin: 0;
 
     font-size: 1.1em;
