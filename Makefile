@@ -6,6 +6,7 @@ PAGES_RST_DIR := $(SRC_DIR)/pages/rst
 STYLES_DIR := $(SRC_DIR)/style
 MEDIA_DIR := $(SRC_DIR)/media
 TPL_DIR := $(SRC_DIR)/tpl
+GENERATOR_DIR := $(SRC_DIR)/generator
 
 PYTHON := python3
 
@@ -34,12 +35,12 @@ $(OUT_DIR):
 
 # copy the base article.html for each RST document and expand it
 $(OUT_DIR)/articles/%.html: $(PAGES_RST_DIR)/%.rst $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
-	$(PYTHON) $(SRC_DIR)/gen/translate.py -r -b="$(TPL_DIR)/article.j2" "$<" > "$@"
-	$(PYTHON) $(SRC_DIR)/gen/translate.py -i -t="$(TPL_DIR)" "$@"
+	$(PYTHON) $(GENERATOR_DIR)/translate.py -r -b="$(TPL_DIR)/article.j2" "$<" > "$@"
+	$(PYTHON) $(GENERATOR_DIR)/translate.py -i -t="$(TPL_DIR)" "$@"
 
 # template each HTML file
 $(OUT_DIR)/%.html: $(PAGES_DIR)/%.html $(PAGES_RST_DIR)/*.rst $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
-	$(PYTHON) $(SRC_DIR)/gen/translate.py -t="$(TPL_DIR)" "$<" > "$@"
+	$(PYTHON) $(GENERATOR_DIR)/translate.py -t="$(TPL_DIR)" "$<" > "$@"
 
 # copy CSS
 $(OUT_DIR)/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
