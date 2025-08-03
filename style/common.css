@@ -5,6 +5,7 @@
 a {
     color: blue;
 }
+
 a:active {
     color: red;
 }
@@ -13,44 +14,36 @@ html {
     height: 100%;
     margin: 0;
 }
+
 body {
     height: 100%;
     width: 80%;
-    max-width: 100ch;
+    max-width: 52em;
     margin: 0 auto;
 }
 
 main {
     display: grid;
-    grid-template-columns: 25ch 1fr;
-
-    padding: 0 40px 20px 40px;
+    grid-template-columns: 14em 1fr;
+    height: 100%;
 }
 
 article#content {
     grid-column: 2;
-
-    padding-left: 10px;
+    padding: 2em 0.7em 1.5em 0.7em;
 }
+
+article#content > :first-child {
+    margin-top: 0;
+}
+
 article#content h1 {
     color: darkred;
     font-size: 2em;
-    margin-top: 30px;
-}
-article#content h2 {
-    color: darkred;
 }
 
-article#content section > h3 {
-    margin-bottom: 10px;
-}
-article#content section > ul {
-    margin-top: 0;
-}
-article#content section li > h4 {
-    font-size: 1.2em;
-    margin-top: 10px;
-    margin-bottom: 0;
+article#content h2 {
+    color: darkred;
 }
 
 @media screen and (max-width: 768px) {
@@ -61,13 +54,13 @@ article#content section li > h4 {
     main {
         grid-template-rows: auto 1fr;
         grid-template-columns: 1fr;
+        padding: 0 2em 0em 2em;
     }
 
     article#content {
         grid-column: 1;
         grid-row: 2;
 
-        margin-top: -20px;
-        padding-left: 0;
+        padding: 0.5em 0 1.5em 0;
     }
 }

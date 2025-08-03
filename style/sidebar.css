@@ -1,44 +1,40 @@
 aside#sidebar {
     grid-column: 1;
-
-    padding-right: 10px;
-
-    font-size: 0.8rem;
+    padding: 2em 0.7em 1.5em 0.7em;
 }
 
+/* Skip-to-content button */
 aside#sidebar > .access-skip {
     position: absolute;
     left: -10000px;
+    top: 0;
 
     background-color: darkred;
     color: white;
-    font-size: 1.3em;
 }
 aside#sidebar > .access-skip:focus {
     position: fixed;
     left: initial;
 }
 
-aside#sidebar > span#name {
-    display: block;
-
-    margin: 30px 0 10px 0;
-
-    font-size: 1.3rem;
+aside#sidebar > h2#name {
+    margin: 0 0 0.5em 0;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
 aside#sidebar > div {
     display: grid;
     grid-template-rows: repeat(3, auto);
-    gap: 15px;
+    gap: 1.2em;
+    font-size: 0.8em;
 }
 
 aside#sidebar nav#main-pages {
-    padding: 10px;
+    padding: 0.75em;
 
     background-color: lightyellow;
-    border: 1px solid orange;
+    border: 0.1em solid orange;
 
     font-weight: bold;
 
@@ -48,9 +44,9 @@ aside#sidebar nav#articles {
     grid-row: 2;
 }
 aside#sidebar nav#external-links {
-    padding: 10px;
+    padding: 0.75em;
 
-    border: 1px dashed gray;
+    border: 0.1em dashed gray;
 
     grid-row: 3;
 }
@@ -67,35 +63,34 @@ aside#sidebar nav > ul {
 }
 
 aside#sidebar nav#articles > ul > li {
-    margin: 2.5px 0;
+    margin: 0.2em 0;
 }
 
 @media screen and (max-width: 768px) {
     aside#sidebar {
         grid-column: 1;
         grid-row: 1;
-
         padding-right: 0;
+        padding: 2em 0 0.5em 0;
     }
 
-    aside#sidebar > span#name {
+    aside#sidebar > h2#name {
         text-align: center;
     }
 
     aside#sidebar > div {
+        grid-template-rows: repeat(2, auto);
         grid-template-areas:
             "mp el"
             "ar ar";
     }
     aside#sidebar nav#main-pages {
         grid-area: mp;
-        margin-right: 8px;
     }
     aside#sidebar nav#articles {
         grid-area: ar;
     }
     aside#sidebar nav#external-links {
         grid-area: el;
-        margin-left: 8px;
     }
 }

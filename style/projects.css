@@ -1,7 +1,7 @@
 ul.projects {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 0.2em;
 
     list-style: none;
 
@@ -9,7 +9,7 @@ ul.projects {
 }
 
 ul.projects li {
-    border: 1px solid grey;
+    border: 0.1em solid grey;
 }
 
 ul.projects li details {
@@ -23,7 +23,7 @@ ul.projects li details[open] summary {
     background: linear-gradient(180deg, rgba(219, 219, 219, 1) 0%, rgba(255, 255, 255, 1) 100%);
 
     margin-bottom: 0.5em;
-    border-bottom: 1px dashed grey;
+    border-bottom: 0.1em dashed grey;
 }
 
 ul.projects li details summary {
