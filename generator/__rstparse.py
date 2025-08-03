@@ -36,7 +36,7 @@ class HTMLWriter(html4css1.Writer):
 
 settings = frontend.get_default_settings(Parser)
 
-DOCDIV_OPEN_RE = re.compile(r"<div class=\"document\" id=\".*\">\n")
+DOCDIV_OPEN_RE = re.compile(r"<div class=\"document\"(?: id=\".*\")?>\n")
 DOCDIV_CLOSE_RE = re.compile(r"</div>\n$")
 
 def parse_rst_file(path):
