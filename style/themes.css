@@ -1,0 +1,29 @@
+/*
+    Available colour themes:
+        nihon      Default/fallback white and red colour scheme
+*/
+
+/* default (nihon) theme properties */
+:root {
+    /* font families */
+    --g-font-body: Arial, sans-serif;
+
+    /* site-wide accent colour(s) */
+    --g-col-accent: darkred;
+
+    /* foreground (text) colours */
+    --g-col-fg-sitename: black;
+    --g-col-fg-link: blue;
+    --g-col-fg-link-active: red;
+    --g-col-fg-content: black;
+    --g-col-fg-sidebar: black;
+    --g-col-fg-sidebar-mainpages: black;
+
+    /* background colours */
+    --g-col-bg-body: white;
+    --g-col-bg-content: white;
+    --g-col-bg-sidebar: white;
+    --g-col-bg-sidebar-mainpages: lightyellow;
+    --g-col-border-sidebar-mainpages: orange;
+    --g-col-border-sidebar-extlinks: grey;
+}

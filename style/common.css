@@ -1,13 +1,13 @@
 * {
-    font-family: Arial, sans-serif;
+    font-family: var(--g-font-body);
 }
 
 a {
-    color: blue;
+    color: var(--g-col-fg-link);
 }
 
 a:active {
-    color: red;
+    color: var(--g-col-fg-link-active);
 }
 
 html {
@@ -20,6 +20,7 @@ body {
     width: 80%;
     max-width: 52em;
     margin: 0 auto;
+    background-color: var(--g-col-bg-body);
 }
 
 main {
@@ -31,6 +32,7 @@ main {
 article#content {
     grid-column: 2;
     padding: 2em 0.7em 1.5em 0.7em;
+    background-color: var(--g-col-bg-content);
 }
 
 article#content > :first-child {
@@ -38,12 +40,12 @@ article#content > :first-child {
 }
 
 article#content h1 {
-    color: darkred;
+    color: var(--g-col-accent);
     font-size: 2em;
 }
 
 article#content h2 {
-    color: darkred;
+    color: var(--g-col-accent);
 }
 
 @media screen and (max-width: 768px) {
@@ -60,7 +62,6 @@ article#content h2 {
     article#content {
         grid-column: 1;
         grid-row: 2;
-
         padding: 0.5em 0 1.5em 0;
     }
 }
