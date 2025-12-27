@@ -1,0 +1,9 @@
+User-Agent: Amazonbot
+User-Agent: Applebot-Extended
+User-Agent: Bytespider
+User-Agent: ClaudeBot
+User-Agent: FacebookBot
+User-Agent: GoogleOther
+User-Agent: GPTBot
+User-Agent: meta-externalagent
+Disallow: /

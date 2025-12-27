@@ -33,7 +33,7 @@ GEN_CSS := $(SRCS_CSS:$(STYLES_DIR)/%=$(OUT_DIR)/css/%)
 GEN_JS := $(SRCS_JS:$(JS_DIR)/%=$(OUT_DIR)/js/%)
 
 # build everything by default
-all: $(GEN_HTML) $(GEN_RST) $(GEN_CSS) $(GEN_JS)
+all: $(GEN_HTML) $(GEN_RST) $(GEN_CSS) $(GEN_JS) $(OUT_DIR)/robots.txt
 
 # copy the base article.html for each RST document and expand it
 $(OUT_DIR)/articles/%.html: $(PAGES_RST_DIR)/%.rst $(TPL_DIR)/*.j2 | $(OUT_DIR) validate_python
@@ -50,6 +50,10 @@ $(OUT_DIR)/css/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
 
 # copy JS
 $(OUT_DIR)/js/%.js: $(JS_DIR)/%.js | $(OUT_DIR)
+	cp "$<" "$@"
+
+# copy robots.txt
+$(OUT_DIR)/robots.txt: robots.txt
 	cp "$<" "$@"
 
 # directories
