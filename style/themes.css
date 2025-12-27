@@ -4,7 +4,8 @@
 */
 
 /* default (nihon) theme properties */
-:root {
+:root,
+[data-user-theme="nihon"] {
     /* font families */
     --g-font-body: Arial, sans-serif;
 
@@ -17,6 +18,7 @@
     --g-col-fg-link-active: red;
     --g-col-fg-content: black;
     --g-col-fg-sidebar: black;
+    --g-col-fg-sidebar-fade: slategray;
     --g-col-fg-sidebar-mainpages: black;
 
     /* background colours */
