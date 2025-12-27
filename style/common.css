@@ -33,6 +33,7 @@ article#content {
     grid-column: 2;
     padding: 2em 0.7em 1.5em 0.7em;
     background-color: var(--g-col-bg-content);
+    color: var(--g-col-fg-content);
 }
 
 article#content > :first-child {

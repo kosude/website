@@ -9,7 +9,7 @@ ul.projects {
 }
 
 ul.projects li {
-    border: 0.1em solid grey;
+    border: 0.1em solid var(--g-col-border-3dblock);
 }
 
 ul.projects li details {
@@ -19,16 +19,16 @@ ul.projects li details[open] {
     padding: 0.5em;
 }
 ul.projects li details[open] summary {
-    background: #dbdbdb;
-    background: linear-gradient(180deg, rgba(219, 219, 219, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: var(--g-col-bg-3dblock-dark);
+    background: linear-gradient(180deg, var(--g-col-bg-3dblock-dark) 0%, var(--g-col-bg-3dblock-light) 100%);
 
     margin-bottom: 0.5em;
     border-bottom: 0.1em dashed grey;
 }
 
 ul.projects li details summary {
-    background: #dbdbdb;
-    background: linear-gradient(0deg, rgba(219, 219, 219, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: var(--g-col-bg-3dblock-light);
+    background: linear-gradient(180deg, var(--g-col-bg-3dblock-light) 0%, var(--g-col-bg-3dblock-dark) 100%);
 
     font-weight: bold;
     cursor: pointer;

@@ -2,6 +2,7 @@ aside#sidebar {
     grid-column: 1;
     padding: 2em 0.7em 1.5em 0.7em;
     background-color: var(--g-col-bg-sidebar);
+    color: var(--g-col-fg-sidebar);
 }
 
 /* Skip-to-content button */
@@ -108,7 +109,7 @@ aside#sidebar nav#theme-selector > ul:hover > li {
 
     margin: 0;
 
-    border: 1px solid white;
+    border: 1px solid var(--g-col-bg-sidebar);
     opacity: 1;
 }
 aside#sidebar nav#theme-selector > ul > li:hover {
@@ -120,6 +121,10 @@ aside#sidebar nav#theme-selector > ul > li:hover {
 
 aside#sidebar nav#theme-selector > ul > li#select-nihon {
     background-color: darkred;
+    color: white;
+}
+aside#sidebar nav#theme-selector > ul > li#select-camo {
+    background-color: darkolivegreen;
     color: white;
 }
 
