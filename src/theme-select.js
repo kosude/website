@@ -29,7 +29,6 @@ function restoreThemePreference() {
     }
 
     const selectorOptionEl = selectorEl.querySelector(`#select-${theme}`);
-    console.log(selectorOptionEl);
 
     if (!selectorOptionEl) {
         // The stored preference has no corresponding option in the selector - invalid

@@ -73,11 +73,20 @@ aside#sidebar nav#theme-selector > h3 {
     color: var(--g-col-fg-sidebar-fade);
 }
 
+aside#sidebar nav#theme-selector > span {
+    display: inline-flex;
+    height: 2em;
+    align-items: center;
+}
+
 aside#sidebar nav#theme-selector > ul {
     display: inline-flex;
     padding: 0;
 
     list-style: none;
+
+    height: 2em;
+    justify-content: center;
 }
 
 aside#sidebar nav#theme-selector > ul > li {

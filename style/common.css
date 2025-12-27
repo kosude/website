@@ -52,6 +52,7 @@ article#content h2 {
 @media screen and (max-width: 768px) {
     body {
         width: 100%;
+        background-color: var(--g-col-bg-content);
     }
 
     main {
