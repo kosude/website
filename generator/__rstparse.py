@@ -43,7 +43,7 @@ def parse_rst_file(path):
     with open(path, "r", encoding="utf-8") as f:
         src = f.read()
 
-    parts = publish_parts(src, writer=HTMLWriter())
+    parts = publish_parts(src, writer=HTMLWriter(), settings_overrides={'doctitle_xform':False})
     body = parts["html_body"]
 
     # we remove the surrounding <div> element that docutils creates, since it is redundant.
