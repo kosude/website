@@ -53,9 +53,6 @@ aside#sidebar nav#external-links {
 
     grid-row: 3;
 }
-aside#sidebar nav#badges img {
-    width: 100%;
-}
 
 aside#sidebar nav > h3 {
     margin: 0;
