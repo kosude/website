@@ -6,6 +6,7 @@
 #   See the LICENCE file for more information.
 
 from __rstparse import parse_rst_file
+from __j2env import setup_jinja2_env
 
 import argparse
 import jinja2 as j2
@@ -28,6 +29,10 @@ parser.add_argument("-t",
                     dest="tpldir",
                     type=str,
                     help="path to templates directory for import resolutions")
+parser.add_argument("-s",
+                    dest="staticdir",
+                    type=str,
+                    help="path to static files directory")
 parser.add_argument("-b",
                     dest="base",
                     type=str,
@@ -73,7 +78,7 @@ else:
     FS_DIR = os.path.dirname(INFILE)
     TPL_NAME = os.path.basename(INFILE)
 
-    env = j2.Environment(loader=j2.FileSystemLoader(FS_DIR))
+    env = setup_jinja2_env(FS_DIR, args.staticdir)
     tpl = env.get_template(TPL_NAME)
 
     # enable other template loading if -t was specified
