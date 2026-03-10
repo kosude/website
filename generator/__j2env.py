@@ -5,6 +5,10 @@
 #
 #   See the LICENCE file for more information.
 
+# this script isn't meant to be run on its own
+if __name__ == "__main__":
+    exit(0)
+
 import jinja2 as j2
 import os
 

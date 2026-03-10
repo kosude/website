@@ -5,7 +5,7 @@
 #
 #   See the LICENCE file for more information.
 
-from __rstparse import parse_rst_file
+from __rstparse import render_rst_file_html, get_rst_title
 from __j2env import setup_jinja2_env
 
 import argparse
@@ -62,7 +62,8 @@ if args.rst:
 
     BASEFILE = os.path.realpath(args.base)
 
-    rst_html = parse_rst_file(INFILE)
+    rst_html = render_rst_file_html(INFILE)
+    rst_title = get_rst_title(INFILE)
 
     # get the base file contents and insert the RST-HTML translation
     f = open(BASEFILE, "r")
@@ -70,6 +71,7 @@ if args.rst:
     f.close()
 
     datasrc = datasrc.replace("{@{RST_PUT}@}", rst_html)
+    datasrc = datasrc.replace("{@{RST_TITLE}@}", rst_title)
 
     write_and_exit(datasrc)
 else:
