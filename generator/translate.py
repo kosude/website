@@ -5,8 +5,9 @@
 #
 #   See the LICENCE file for more information.
 
-from __rstparse import render_rst_file_html, get_rst_title
+from __artget import find_articles
 from __j2env import setup_jinja2_env
+from __rstparse import render_rst_file_html, get_rst_title
 
 import argparse
 import jinja2 as j2
@@ -33,6 +34,10 @@ parser.add_argument("-s",
                     dest="staticdir",
                     type=str,
                     help="path to static files directory")
+parser.add_argument("-a",
+                    dest="artdir",
+                    type=str,
+                    help="path to article RST directory")
 parser.add_argument("-b",
                     dest="base",
                     type=str,
@@ -43,6 +48,8 @@ args = parser.parse_args()
 if args.rst == True and args.base == None:
     parser.error("When -r is specified, -b is required")
     exit(1)
+
+# TODO: validate required (if not rst) -a and -s flags
 
 INFILE = os.path.realpath(args.input)
 
@@ -58,7 +65,7 @@ def write_and_exit(ret):
         exit(0)
 
 if args.rst:
-    # if --rst is specified then we interpret INFILE as restructuredtext and translate it into HTML based on base (-b)
+    # if --rst is specified then we interpret INFILE as reStructuredText and translate it into HTML based on base (-b)
 
     BASEFILE = os.path.realpath(args.base)
 
@@ -80,7 +87,10 @@ else:
     FS_DIR = os.path.dirname(INFILE)
     TPL_NAME = os.path.basename(INFILE)
 
-    env = setup_jinja2_env(FS_DIR, args.staticdir)
+    # TODO: articles and env don't change between invocations, and are expensive to get - can they be cached?
+    articles = find_articles(os.path.realpath(args.artdir))
+    env = setup_jinja2_env(FS_DIR, args.staticdir, articles)
+
     tpl = env.get_template(TPL_NAME)
 
     # enable other template loading if -t was specified

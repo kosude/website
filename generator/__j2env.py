@@ -9,17 +9,22 @@
 if __name__ == "__main__":
     exit(0)
 
+from __artget import Article, render_articles_ul_html
+
 import jinja2 as j2
 import os
 
-def setup_jinja2_env(fsdir, staticdir):
+def setup_jinja2_env(fsdir: str, staticdir: str, articles: list[Article]):
     env = j2.Environment(loader=j2.FileSystemLoader(fsdir))
 
     # used in some custom functions
     global STATICDIR
-    STATICDIR = os.path.abspath(staticdir)
+    STATICDIR = os.path.realpath(staticdir)
 
     env.globals["readstatic"] = __j2func_readstatic
+
+    env.globals["articlesul"] = render_articles_ul_html(articles)
+    env.globals["articlesamt"] = len(articles)
 
     return env
 
