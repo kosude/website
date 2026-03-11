@@ -14,7 +14,9 @@ from __artget import Article, render_articles_ul_html
 import jinja2 as j2
 import os
 
-def setup_jinja2_env(fsdir: str, staticdir: str, articles: list[Article]):
+def setup_jinja2_env(fsdir: str, staticdir: str, articles: list[Article]) -> j2.Environment:
+    """Configure and return a standard jinja2 environment with custom global identifiers."""
+
     env = j2.Environment(loader=j2.FileSystemLoader(fsdir))
 
     # used in some custom functions
@@ -28,7 +30,9 @@ def setup_jinja2_env(fsdir: str, staticdir: str, articles: list[Article]):
 
     return env
 
-def __j2func_readstatic(filename):
+def __j2func_readstatic(filename) -> str:
+    """Read a text file in the global static directory into a string."""
+
     f = open(STATICDIR + os.path.sep + filename, "r")
     contents = f.read()
     f.close()

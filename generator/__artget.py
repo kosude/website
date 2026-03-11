@@ -15,6 +15,8 @@ import os
 import glob
 
 class Article:
+    """Class representation of an individual article."""
+
     def __init__(self):
         # The article's title (first RST heading)
         self.title = ""

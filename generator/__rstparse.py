@@ -17,31 +17,23 @@ from docutils.writers import html4css1
 import re
 
 class HTMLTranslator(html4css1.HTMLTranslator):
-    def should_be_compact_paragraph(self, node):
-        if isinstance(node.parent, nodes.block_quote):
-            return 0
+    """A lot of methods are provided in this class which can be overriden for hacking docutils:
+       see https://github.com/docutils/docutils/blob/master/docutils/docutils/writers/_html_base.py"""
 
-        return html4css1.HTMLTranslator.should_be_compact_paragraph(self, node)
-
-    # the original visit_section puts divs everywhere which aren't necessary
-    def visit_section(self, _):
-        self.section_level += 1
-
-    # same deal for depart_section
-    def depart_section(self, _):
-        self.section_level -= 1
+    ...
 
 class HTMLWriter(html4css1.Writer):
+    """HTML writer class that uses the customised translator type."""
+
     def __init__(self):
         html4css1.Writer.__init__(self)
         self.translator_class = HTMLTranslator
 
-DOCDIV_OPEN_RE = re.compile(r"<div class=\"document\"(?: id=\".*\")?>\n")
-DOCDIV_CLOSE_RE = re.compile(r"</div>\n$")
-
+# global reused docutils state objects
 parser = rst.Parser()
-components = (rst.Parser,)
-settings = frontend.OptionParser(components).get_default_values()
+parser_settings = frontend.OptionParser((rst.Parser,)).get_default_values()
+writer = HTMLWriter()
+writer_setting_overrides = {"initial_header_level": 2}
 
 def _parse_rst(path: str) -> nodes.document:
     """Parse the given RST file into a docutils tree (document) object."""
@@ -49,9 +41,14 @@ def _parse_rst(path: str) -> nodes.document:
     with open(path, "r", encoding="utf-8") as f:
         src = f.read()
 
-    document = utils.new_document("<>", settings)
+    document = utils.new_document("<>", parser_settings)
     parser.parse(src, document) # populates document with parsed nodes
     return document
+
+# regex statements to match toplevel document tags
+# (to be removed as they are not necessary here)
+DOCDIV_OPEN_RE = re.compile(r"<div class=\"document\"(?: id=\".*\")?>\n")
+DOCDIV_CLOSE_RE = re.compile(r"</div>\n$")
 
 def render_rst_file_html(path: str) -> str:
     """Render the provided RST file into a HTML string."""
@@ -59,7 +56,7 @@ def render_rst_file_html(path: str) -> str:
     with open(path, "r", encoding="utf-8") as f:
         src = f.read()
 
-    parts = publish_parts(src, writer=HTMLWriter())
+    parts = publish_parts(src, writer=writer, settings_overrides=writer_setting_overrides)
     body = parts["html_body"]
 
     # we remove the surrounding <div> element that docutils creates, since it is redundant.
