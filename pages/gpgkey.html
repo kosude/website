@@ -5,12 +5,12 @@
 
 <html lang="en">
     <head>
-        {{ he.head("", "GPG public key") | indent | indent }}
+        {{ he.head("GPG public key") }}
     </head>
 
     <body>
         <main>
-            {{ sbar.sidebar("", "articles/") | indent | indent }}
+            {{ sbar.sidebar() }}
 
             <article id="content">
                 <h1>GPG public key</h1>

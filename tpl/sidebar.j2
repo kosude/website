@@ -1,4 +1,4 @@
-{% macro sidebar(prefix, prefix_articles) -%}
+{% macro sidebar() -%}
 <aside id="sidebar">
     <a href="#content" class="access-skip">Skip to main content</a>
 
@@ -8,8 +8,8 @@
         <nav id="main-pages">
             <h3>Main pages</h3>
             <ul>
-                <li><a href="{{ prefix }}index.html">Home</a></li>
-                <li><a href="{{ prefix }}projects.html">Projects</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/projects.html">Projects</a></li>
             </ul>
         </nav>
 
@@ -33,7 +33,7 @@
 
             <span>Email me at <a href="mailto:jdb@kosude.net">jdb at kosude dot net</a></span>
             <br/>
-            <span>Also see <a href="{{ prefix }}gpgkey.html">my associated GPG key</a></span>
+            <span>Also see <a href="/gpgkey.html">my associated GPG key</a></span>
         </nav>
     </div>
 </aside>

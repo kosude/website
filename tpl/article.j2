@@ -5,12 +5,12 @@
 
 <html lang="en">
     <head>
-        {{ he.head("../", "{@{RST_TITLE}@}") | indent | indent }}
+        {{ he.head("{@{RST_TITLE}@}") }}
     </head>
 
     <body>
         <main>
-            {{ sbar.sidebar("../", "") | indent | indent }}
+            {{ sbar.sidebar() }}
 
             <article id="content">
                 {@{RST_PUT}@}
