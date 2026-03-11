@@ -19,14 +19,23 @@ aside#sidebar > .access-skip:focus {
     left: initial;
 }
 
-aside#sidebar > h2#name {
-    margin: 0 0 0.5em 0;
+aside#sidebar > div#site-name {
+    margin: 0 0 1em 0;
+}
+
+aside#sidebar > div#site-name > h2 {
+    margin: 0;
     font-size: 1.3em;
     font-weight: bold;
     color: var(--g-col-fg-sitename);
 }
 
-aside#sidebar > div {
+aside#sidebar > div#site-name > span {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+aside#sidebar > div#sidebar-content {
     display: grid;
     grid-template-rows: repeat(3, auto);
     gap: 1.2em;
@@ -77,11 +86,11 @@ aside#sidebar nav#articles > ul > li {
         padding: 2em 0 0.5em 0;
     }
 
-    aside#sidebar > h2#name {
+    aside#sidebar > div#site-name {
         text-align: center;
     }
 
-    aside#sidebar > div {
+    aside#sidebar > div#sidebar-content {
         grid-template-rows: repeat(2, auto);
         grid-template-areas:
             "mp el"
