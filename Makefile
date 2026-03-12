@@ -50,7 +50,7 @@ $(OUT_DIR)/css/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
 
 # copy static files
 $(OUT_DIR)/static/%: $(STATIC_DIR)/% | $(OUT_DIR)
-	cp "$<" "$@"
+	cp -R "$<" "$@"
 
 # copy robots.txt
 $(OUT_DIR)/robots.txt: robots.txt
