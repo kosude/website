@@ -6,4 +6,5 @@ User-Agent: FacebookBot
 User-Agent: GoogleOther
 User-Agent: GPTBot
 User-Agent: meta-externalagent
+User-Agent: BingBot
 Disallow: /
