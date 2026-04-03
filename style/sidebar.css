@@ -20,10 +20,13 @@ aside#sidebar > .access-skip:focus {
 }
 
 aside#sidebar > div#site-name {
-    margin: 0 0 1em 0;
+    display: block;
+    margin-bottom: 2ch;
 }
 
 aside#sidebar > div#site-name > h2 {
+    display: block;
+
     margin: 0;
     font-size: 1.3em;
     font-weight: bold;
@@ -31,6 +34,9 @@ aside#sidebar > div#site-name > h2 {
 }
 
 aside#sidebar > div#site-name > span {
+    display: block;
+
+    margin: 0;
     font-size: 0.9em;
     font-style: italic;
 }
