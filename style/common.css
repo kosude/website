@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, a, span, p, li {
+h1, h2, h3, h4, h5, h6, a, span, p, li, img {
     font-family: var(--g-font-body);
 }
 
@@ -8,6 +8,17 @@ a {
 
 a:active {
     color: var(--g-col-fg-link-active);
+}
+
+img {
+    /* Alt text for images */
+    color: var(--g-col-fg-content-fade);
+    font-weight: bold;
+}
+p.caption {
+    color: var(--g-col-fg-content-fade);
+    font-style: italic;
+    margin-top: 0.3em;
 }
 
 html {
