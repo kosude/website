@@ -1,58 +1,35 @@
-ul.projects {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.2em;
-
-    list-style: none;
-
+#content ul {
     padding: 0;
+    list-style: none;
 }
 
-ul.projects li {
-    border: 0.1em solid var(--g-col-border-3dblock);
+ul#categories > li {
+    position: relative;
+
+    padding-left: 10px;
 }
 
-ul.projects li details {
-    padding: 0.5em 0.5em 0;
-}
-ul.projects li details[open] {
-    padding: 0.5em;
-}
-ul.projects li details[open] summary {
-    background: var(--g-col-bg-3dblock-dark);
-    background: linear-gradient(180deg, var(--g-col-bg-3dblock-dark) 0%, var(--g-col-bg-3dblock-light) 100%);
+ul#categories > li::before {
+    content: "";
+    width: 4px;
 
-    margin-bottom: 0.5em;
-    border-bottom: 0.1em dashed grey;
+    /* position to the left of the category and expand to its full length */
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; /* keep to the far left, ignoring category padding */
+
+    background-color: var(--g-col-accent);
 }
 
-ul.projects li details summary {
-    background: var(--g-col-bg-3dblock-light);
-    background: linear-gradient(180deg, var(--g-col-bg-3dblock-light) 0%, var(--g-col-bg-3dblock-dark) 100%);
+ul#categories > li > span.name {
+    color: var(--g-col-bg-content);
+    background-color: var(--g-col-accent);
 
     font-weight: bold;
-    cursor: pointer;
 
-    margin: -0.5em -0.5em 0;
-    padding: 0.5em;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-ul.projects li details summary .brief span.tags {
-    align-self: flex-start;
-
-    font-weight: normal;
-    font-style: italic;
-    font-size: 0.85em;
-
-    display: flex;
-}
-ul.projects li details summary span.upstream {
-    align-self: flex-end;
-
-    font-weight: normal;
+    padding: 2px 6px 2px 14px;
+    margin-left: -10px;
+    display: inline-block;
 }

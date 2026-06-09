@@ -16,6 +16,7 @@
     /* background colours */
     --g-col-bg-body: white;
     --g-col-bg-content: white;
+    --g-col-bg-content-dark: gainsboro;
     --g-col-bg-sidebar: white;
     --g-col-bg-sidebar-mainpages: lightyellow;
     --g-col-bg-3dblock-light: white;
