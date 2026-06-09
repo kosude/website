@@ -57,9 +57,11 @@ $(OUT_DIR)/robots.txt: robots.txt
 	cp "$<" "$@"
 
 # directories
-$(OUT_DIR): $(OUT_DIR)/articles $(OUT_DIR)/css $(OUT_DIR)/static
+$(OUT_DIR): $(OUT_DIR)/articles $(OUT_DIR)/projects $(OUT_DIR)/css $(OUT_DIR)/static
 
 $(OUT_DIR)/articles:
+	mkdir -p $@
+$(OUT_DIR)/projects:
 	mkdir -p $@
 $(OUT_DIR)/css:
 	mkdir -p $@
