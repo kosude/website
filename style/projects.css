@@ -1,58 +1,92 @@
-ul.projects {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.2em;
-
-    list-style: none;
-
+#content ul {
     padding: 0;
+    list-style: none;
 }
 
-ul.projects li {
-    border: 0.1em solid var(--g-col-border-3dblock);
+ul.categories > li {
+    position: relative;
+
 }
 
-ul.projects li details {
-    padding: 0.5em 0.5em 0;
-}
-ul.projects li details[open] {
-    padding: 0.5em;
-}
-ul.projects li details[open] summary {
-    background: var(--g-col-bg-3dblock-dark);
-    background: linear-gradient(180deg, var(--g-col-bg-3dblock-dark) 0%, var(--g-col-bg-3dblock-light) 100%);
+ul.categories > li::before {
+    content: "";
+    width: 0.25em;
 
-    margin-bottom: 0.5em;
-    border-bottom: 0.1em dashed grey;
+    /* position to the left of the category and expand to its full length */
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; /* keep to the far left, ignoring category padding */
+
+    background-color: var(--g-col-accent);
 }
 
-ul.projects li details summary {
-    background: var(--g-col-bg-3dblock-light);
-    background: linear-gradient(180deg, var(--g-col-bg-3dblock-light) 0%, var(--g-col-bg-3dblock-dark) 100%);
+ul.categories > li > span.category {
+    color: var(--g-col-bg-content);
+    background-color: var(--g-col-accent);
 
     font-weight: bold;
-    cursor: pointer;
-
-    margin: -0.5em -0.5em 0;
-    padding: 0.5em;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-ul.projects li details summary .brief span.tags {
-    align-self: flex-start;
-
-    font-weight: normal;
     font-style: italic;
-    font-size: 0.85em;
+
+    padding: 0.2em 0.4em 0.2em 0.8em;
+    display: inline-block;
+}
+
+ul.projects > li {
+    padding: 0 0.8em 0 0.8em;
+    margin-bottom: 0.8em;
+
+    background-color: var(--g-col-bg-sidebar-mainpages);
+    border-color: var(--g-col-border-sidebar-mainpages);
+    border-width: 0 0.125em 0.125em 0;
+    border-style: solid;
+}
+
+ul.projects > li .heading {
+    padding-top: 0.6em;
 
     display: flex;
+    justify-content: space-between;
 }
-ul.projects li details summary span.upstream {
-    align-self: flex-end;
 
-    font-weight: normal;
+ul.projects > li .heading h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+ul.projects > li .subheading {
+    display: flex;
+    font-size: 0.9em;
+}
+ul.projects > li .subheading p {
+    margin: 0;
+    padding-top: 0.1em;
+}
+ul.projects > li .subheading span {
+    padding: 0 0.5em 0 0.5em;
+}
+ul.projects > li .subheading p.date {
+    font-weight: bold;
+}
+ul.projects > li .subheading p.tags {
+    font-style: italic;
+}
+
+ul.projects > li p.brief {
+    margin: 0;
+    padding: 0.6em 0 1em 0;
+
+    text-align: justify;
+    hyphens: auto;
+}
+
+@media screen and (max-width: 808px) {
+    ul.projects > li .subheading {
+        display: block;
+    }
+
+    ul.projects > li .subheading span {
+        display: none;
+    }
 }

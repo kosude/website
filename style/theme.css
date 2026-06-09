@@ -16,13 +16,11 @@
     /* background colours */
     --g-col-bg-body: white;
     --g-col-bg-content: white;
+    --g-col-bg-content-dark: gainsboro;
     --g-col-bg-sidebar: white;
     --g-col-bg-sidebar-mainpages: lightyellow;
-    --g-col-bg-3dblock-light: white;
-    --g-col-bg-3dblock-dark: rgb(219, 219, 219);
 
     /* border colours */
     --g-col-border-sidebar-mainpages: orange;
     --g-col-border-sidebar-extlinks: grey;
-    --g-col-border-3dblock: grey;
 }
