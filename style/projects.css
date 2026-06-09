@@ -6,12 +6,11 @@
 ul#categories > li {
     position: relative;
 
-    padding-left: 10px;
 }
 
 ul#categories > li::before {
     content: "";
-    width: 4px;
+    width: 0.25em;
 
     /* position to the left of the category and expand to its full length */
     display: inline-block;
@@ -23,13 +22,46 @@ ul#categories > li::before {
     background-color: var(--g-col-accent);
 }
 
-ul#categories > li > span.name {
+ul#categories > li > span.category {
     color: var(--g-col-bg-content);
     background-color: var(--g-col-accent);
 
     font-weight: bold;
+    font-style: italic;
 
-    padding: 2px 6px 2px 14px;
-    margin-left: -10px;
+    padding: 0.2em 0.4em 0.2em 0.8em;
     display: inline-block;
+}
+
+ul.projects > li {
+    padding: 0 0.8em 0 0.8em;
+    margin-bottom: 0.8em;
+
+    background-color: var(--g-col-bg-sidebar-mainpages);
+    border-color: orange;
+    border-width: 0 0.25em 0.125em 0;
+    border-style: solid;
+}
+
+ul.projects > li .heading {
+    padding-top: 0.6em;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+ul.projects > li .heading h3 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+ul.projects > li p.tags {
+    margin: 0;
+    padding-top: 0.1em;
+    font-style: italic;
+}
+
+ul.projects > li p.brief {
+    margin: 0;
+    padding: 0.4em 0 1em 0;
 }
