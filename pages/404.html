@@ -1,0 +1,27 @@
+{%- import "headelems.j2" as he -%}
+{%- import "sidebar.j2" as sbar -%}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {{ he.head("404 Error") }}
+    </head>
+
+    <body>
+        <main>
+            {{ sbar.sidebar() }}
+
+            <article id="content">
+                <h1>404: Page Not Found</h1>
+
+                <p>
+                    The resource at the current URL could not be found, or requires elevated permissions to be accessed.
+                </p>
+                <p>
+                    Make sure the address is correct, or <a href="" onclick="history.back()">return to the previous page</a>.
+                </p>
+            </article>
+        </main>
+    </body>
+</html>
