@@ -30,7 +30,10 @@ SRCS_STATIC := $(shell find $(STATIC_DIR))
 GEN_HTML := $(SRCS_HTML:$(PAGES_DIR)/%=$(OUT_DIR)/%)
 GEN_RST := $(SRCS_RST:$(PAGES_RST_DIR)/%.rst=$(OUT_DIR)/articles/%.html)
 GEN_CSS := $(SRCS_CSS:$(STYLES_DIR)/%=$(OUT_DIR)/css/%)
-GEN_STATIC := $(SRCS_STATIC:$(STATIC_DIR)/%=$(OUT_DIR)/static/%)
+GEN_STATIC := $(patsubst $(STATIC_DIR)/%,$(OUT_DIR)/static/%,\
+			  $(patsubst $(STATIC_DIR)/_u_%,$(OUT_DIR)/static/%,\
+			  $(patsubst $(STATIC_DIR)/_c_%,$(OUT_DIR)/static/%.tar.xz,\
+			  $(SRCS_STATIC))))
 
 # build everything by default
 all: $(GEN_HTML) $(GEN_RST) $(GEN_CSS) $(GEN_STATIC) $(OUT_DIR)/robots.txt
@@ -48,9 +51,16 @@ $(OUT_DIR)/%.html: $(PAGES_DIR)/%.html $(PAGES_RST_DIR)/*.rst $(TPL_DIR)/*.j2 | 
 $(OUT_DIR)/css/%.css: $(STYLES_DIR)/%.css | $(OUT_DIR)
 	cp "$<" "$@"
 
-# copy static files
-$(OUT_DIR)/static/%: $(STATIC_DIR)/% | $(OUT_DIR)
+# copy uncompressed ("_u_") static files
+$(OUT_DIR)/static/%: $(STATIC_DIR)/_u_% | $(OUT_DIR)
 	cp -R "$<" "$@"
+
+# compress and copy static folders preceeded with "_c_"
+# only do this if the folder is top-level (first child of the static/ directory)
+$(OUT_DIR)/static/%.tar.xz: $(STATIC_DIR)/_c_% | $(OUT_DIR)
+	@if [ "$(shell basename $(shell dirname "$<"))" = "static" ]; then \
+		tar -cvJf "$@" -C "$<" .; \
+	fi
 
 # copy robots.txt
 $(OUT_DIR)/robots.txt: robots.txt
