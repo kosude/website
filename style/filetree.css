@@ -1,0 +1,36 @@
+ul.filetree {
+    padding: 0;
+}
+
+ul.filetree, ul.filetree ul {
+    list-style: none;
+}
+
+ul.filetree li span, ul.filetree li span a {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+ul.filetree li::before {
+    content: "";
+
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    height: 15px;
+    width: 2rem;
+    display: inline-block;
+    margin-bottom: 0.3rem;
+    margin-left: 1rem;
+}
+
+ul.filetree li.root::before {
+    display: none;
+}
+
+ul.filetree li.root > ul {
+    padding: 0;
+}
+
+ul.filetree li.dir > span::after {
+    content: "/";
+}

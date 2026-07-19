@@ -43,7 +43,7 @@ aside#sidebar > div#site-name > span {
 
 aside#sidebar > div#sidebar-content {
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
     gap: 1.2em;
     font-size: 0.8em;
 }

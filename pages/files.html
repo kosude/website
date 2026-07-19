@@ -1,0 +1,40 @@
+{%- import "headelems.j2" as he -%}
+{%- import "sidebar.j2" as sbar -%}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {{ he.head("File downloads") }}
+
+        <link rel="stylesheet" href="/css/filetree.css">
+    </head>
+
+    <body>
+        <main>
+            {{ sbar.sidebar() }}
+
+            <article id="content">
+                <h1>File downloads list</h1>
+
+                <p>
+                    These are some files I use in a lot of projects, which are publicly available.
+                </p>
+
+                <p>
+                    Currently they are being hosted on GitLab (same as the rest of this website), but I do plan on implementing a better solution in
+                    the future. For the time-being, if this page doesn't display properly, you can alternatively use the
+                    <a href="https://gitlab.com/kosude/website/-/tree/main/static/files">GitLab interface</a>.
+                </p>
+
+                <ul class="filetree">
+                    <li class="dir root"><span>files</span>
+                        <ul>
+                            <li><span><a href="static/files/jdb-kosude-net.asc">jdb-kosude-net.asc</a></span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </main>
+    </body>
+</html>
